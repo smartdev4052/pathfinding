@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import logo from "../assets/logo.png";
 
 const Sidebar = (props) => {
+  const { t } = useTranslation();
   const [advice, setAdvice] = React.useState(false);
   const onDragStart = (event, nodeType) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
@@ -24,15 +27,12 @@ const Sidebar = (props) => {
                 fontSize: "16px",
               }}
             >
-              Pathfinding is currently not optimized for touchscreen's devices
-              and small ones
+              {t("advice")}
             </p>
           </div>
         )}
         <div id="dnd">
-          <div className="description">
-            ADD a NODE by dragging this node to the sheet.
-          </div>
+          <div className="description">{t("addNode")}</div>
           <div className="drag">
             <div
               className="react-flow__node-default"
@@ -45,43 +45,40 @@ const Sidebar = (props) => {
         </div>
         <div className="box">
           <div>
-            <p>
-              CHANGE the WEIGHT by selecting edge by source {"(output)"} and
-              target {"(input)"} nodes
-            </p>
+            <p>{t("changeWeight")}</p>
             <div>
               <input
                 className="boxInputST"
                 id="source"
                 type="number"
-                placeholder="source"
+                placeholder={t("source")}
               ></input>
               <input
                 className="boxInputST"
                 id="target"
                 type="number"
-                placeholder="target"
+                placeholder={t("target")}
               ></input>
             </div>
-            <p>Select the new weight:</p>
+            <p>{t("newWeight")}</p>
             <input
               className="boxInput"
               id="weight"
               type="number"
-              placeholder="weight"
+              placeholder={t("weight")}
             ></input>
             <button
               className="buttonSecondary"
               type="button"
               onClick={props.updateWeight}
             >
-              CHANGE WEIGHT
+              {t("B-weight")}
             </button>
           </div>
         </div>
         <div>
           <button className="buttonSecondary" onClick={props.delete}>
-            DELETE ALL EDGES
+            {t("B-edges")}
           </button>
           {/* 
           <div>
@@ -101,7 +98,7 @@ const Sidebar = (props) => {
             </button>
           </div>*/}
           <button className="buttonPrimary" onClick={props.calculate}>
-            CALCULATE SHORTEST PATH
+            {t("B-calculate")}
           </button>
         </div>
 
@@ -109,11 +106,13 @@ const Sidebar = (props) => {
           {props.results && (
             <div className="box">
               <div>
-                <h3>Distance: {props.results.distance}</h3>
+                <h3>
+                  {t("distance")}: {props.results.distance}
+                </h3>
               </div>
               <div>
                 <h3>
-                  Shortest Path:{" "}
+                  {t("shortestPath")}:{" "}
                   {props.results.path.map((e, i, row) => {
                     return (
                       <li style={{ display: "inline" }} key={i}>
@@ -130,7 +129,7 @@ const Sidebar = (props) => {
               </div>
               <div>
                 <h3>
-                  Visited Nodes:{" "}
+                  {t("visitedNodes")}:{" "}
                   {props.results.visited.map((e, i, row) => {
                     return (
                       <li style={{ display: "inline", color: "blue" }} key={i}>
@@ -148,6 +147,9 @@ const Sidebar = (props) => {
             </div>
           )}
         </div>
+      </div>
+      <div id="footer">
+        <img src={logo}></img>
       </div>
     </aside>
   );

@@ -28,6 +28,7 @@ import {
 import localforage from "localforage";
 import { getAllNodes, updateNodeStyle, getNodesVisited } from "./graph/nodes";
 import Dijkstra from "./algorithms/dijkstra";
+import { useTranslation } from "react-i18next";
 import "./components/sidebar.css";
 
 localforage.config({
@@ -40,6 +41,7 @@ let id = 8;
 const getId = () => `${++id}`;
 
 const Pathfinding = () => {
+  const { t } = useTranslation();
   const [elements, setElements] = useState(exampleGraph);
   const [results, setResults] = useState();
   const reactFlowWrapper = useRef(null);
@@ -154,8 +156,8 @@ const Pathfinding = () => {
           }}
           calculate={() => {
             //prompt
-            let startNode = prompt("start Node:");
-            let endNode = prompt("End Node:");
+            let startNode = prompt(t("startNode") + ":");
+            let endNode = prompt(t("endNode") + ":");
 
             //reset all the animations
             let nelements = elements;

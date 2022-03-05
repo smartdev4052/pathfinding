@@ -1,0 +1,18 @@
+{
+    "advice": "Pathfinding is currently not optimized for touchscreen's devices and small ones",
+    "addNode": "ADD a NODE by dragging this node to the sheet.",
+    "changeWeight": "CHANGE the WEIGHT by selecting edge by source (output) and target (input) nodes.",
+    "source": "source",
+    "target": "target",
+    "newWeight": "Select the new weight:",
+    "weight": "weight",
+    "B-weight": "CHANGE WEIGHT",
+    "B-edges": "DELETE ALL EDGES",
+    "B-calculate": "CALCULATE SHORTEST PATH",
+    "distance": "Distance",
+    "shortestPath": "Shortest Path",
+    "visitedNodes": "Visited Nodes",
+    "startNode": "Start Node",
+    "endNode": "End Node"
+
+}

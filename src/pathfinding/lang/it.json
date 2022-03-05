@@ -1,0 +1,17 @@
+{
+    "advice": "Pathfinding attualmente non è ottimizzato per dispositivi touchscreen o di piccole dimensioni",
+    "addNode": "AGGIUNGI un NODO trascinando questo nodo sul foglio.",
+    "changeWeight": "CAMBIA il PESO selezionando l'arco dal nodo predecessore e successore, oppure cliccandolo.",
+    "source": "predecessore",
+    "target": "successore",
+    "newWeight": "Seleziona il nuovo peso:",
+    "weight": "peso",
+    "B-weight": "CAMBIA PESO",
+    "B-edges": "ELIMINA TUTTI GLI ARCHI",
+    "B-calculate": "CALCOLA IL CAMMINO MINIMO",
+    "distance": "Distanza",
+    "shortestPath": "Cammino Minimo",
+    "visitedNodes": "Nodi Visitati",
+    "startNode": "Nodo iniziale",
+    "endNode": "Nodo finale"
+}

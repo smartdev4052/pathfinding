@@ -1,3 +1,7 @@
+::placeholder {
+  font-size: 11px;
+}
+
 .dndflow {
   flex-direction: column;
   display: flex;
@@ -179,4 +183,13 @@ h3 {
   .dndflow aside {
     width: 250px;
   }
+}
+
+#footer {
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120px;
+  z-index: 1px;
 }
