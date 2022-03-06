@@ -10,7 +10,7 @@
 
 .dndflow aside {
   border-right: 1px solid #eee;
-  padding: 15px 10px;
+  padding: 15px;
   font-size: 12px;
   background: #fcfcfc;
 }
@@ -67,6 +67,15 @@
   border-radius: 4px;
   box-sizing: border-box;
   width: 48%;
+}
+
+.dndflow aside .lang {
+  width: 80px;
+  margin-left: calc(50% - 40px);
+}
+
+.dndflow aside .copy {
+  text-align: center;
 }
 
 .buttonPrimary {
@@ -183,13 +192,50 @@ h3 {
   .dndflow aside {
     width: 250px;
   }
+
+  #footer {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .dndflow aside .lang {
+    width: 80px;
+    margin-left: 85px;
+  }
+
+  .dndflow aside .copy {
+    width: 60%;
+    margin-left: 0.5%;
+    text-align: left;
+  }
 }
 
-#footer {
+#logo {
   padding: 1rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 120px;
   z-index: 1px;
+}
+
+select {
+  height: 25px;
+  width: 80px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+p {
+  font-size: 13px;
+}
+
+#footer {
+  margin-top: 30px;
+  border-top: 1px solid rgb(185, 183, 183);
+  padding-top: 10px;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 0px;
 }

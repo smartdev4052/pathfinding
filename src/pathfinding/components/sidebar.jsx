@@ -1,10 +1,11 @@
+import i18next from "i18next";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.png";
 
 const Sidebar = (props) => {
   const { t } = useTranslation();
-  const [advice, setAdvice] = React.useState(false);
+  const [sideBool, setSideBool] = React.useState(false);
   const onDragStart = (event, nodeType) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
     event.dataTransfer.effectAllowed = "move";
@@ -12,14 +13,17 @@ const Sidebar = (props) => {
 
   useEffect(() => {
     if (window.innerWidth <= 820) {
-      setAdvice(true);
+      setSideBool(true);
     }
   }, []);
 
   return (
     <aside>
+      <div id="logo">
+        <img alt="Pathfinding - logo" src={logo}></img>
+      </div>
       <div>
-        {advice && (
+        {sideBool && (
           <div id="advice">
             <p
               style={{
@@ -31,18 +35,20 @@ const Sidebar = (props) => {
             </p>
           </div>
         )}
-        <div id="dnd">
-          <div className="description">{t("addNode")}</div>
-          <div className="drag">
-            <div
-              className="react-flow__node-default"
-              onDragStart={(event) => onDragStart(event, "default")}
-              draggable
-            >
-              i++
+        {!sideBool && (
+          <div id="dnd">
+            <div className="description">{t("addNode")}</div>
+            <div className="drag">
+              <div
+                className="react-flow__node-default"
+                onDragStart={(event) => onDragStart(event, "default")}
+                draggable
+              >
+                i++
+              </div>
             </div>
           </div>
-        </div>
+        )}
         <div className="box">
           <div>
             <p>{t("changeWeight")}</p>
@@ -77,9 +83,11 @@ const Sidebar = (props) => {
           </div>
         </div>
         <div>
-          <button className="buttonSecondary" onClick={props.delete}>
-            {t("B-edges")}
-          </button>
+          {!sideBool && (
+            <button className="buttonSecondary" onClick={props.delete}>
+              {t("B-edges")}
+            </button>
+          )}
           {/* 
           <div>
             <button
@@ -149,7 +157,28 @@ const Sidebar = (props) => {
         </div>
       </div>
       <div id="footer">
-        <img src={logo}></img>
+        <div className="lang">
+          <select
+            name="lang"
+            defaultValue={() => {
+              let lang = navigator.language;
+              lang = lang === "IT-it" ? it : "en";
+              return lang;
+            }}
+            onChange={(event) => {
+              i18next.changeLanguage(event.target.value);
+            }}
+          >
+            <option value="it">Italiano</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div className="copy">
+          <p>
+            ©Copyright {new Date().getFullYear()}{" "}
+            <a href="https://francescopapini.com">Francesco Papini</a>
+          </p>
+        </div>
       </div>
     </aside>
   );
