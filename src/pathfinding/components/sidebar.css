@@ -193,20 +193,9 @@ h3 {
     width: 250px;
   }
 
-  #footer {
-    position: fixed;
-    bottom: 0;
-  }
-
   .dndflow aside .lang {
     width: 80px;
     margin-left: 85px;
-  }
-
-  .dndflow aside .copy {
-    width: 60%;
-    margin-left: 0.5%;
-    text-align: left;
   }
 }
 
