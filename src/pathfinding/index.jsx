@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import ReactFlow, {
   Background,
   ReactFlowProvider,
@@ -25,16 +25,10 @@ import {
   getEdgeShortestPath,
   updateWeightEdge,
 } from "./graph/edges";
-import localforage from "localforage";
 import { getAllNodes, updateNodeStyle, getNodesVisited } from "./graph/nodes";
 import Dijkstra from "./algorithms/dijkstra";
 import { useTranslation } from "react-i18next";
 import "./components/sidebar.css";
-
-localforage.config({
-  name: "pathfinding",
-  storeName: "graph",
-});
 
 // programmatically increment id of Nodes
 let id = 8;
@@ -108,16 +102,6 @@ const Pathfinding = () => {
       document.getElementById("weight").focus();
     }
   };
-
-  useEffect(() => {
-    /*const restoreFlow = async () => {
-      const graph = await localforage.getItem("graph");
-      if (graph) {
-        setElements(graph || []);
-      }
-    };
-    restoreFlow();*/
-  }, []);
 
   return (
     <div className="dndflow" style={{ height: "100%", width: "100%" }}>
@@ -195,18 +179,6 @@ const Pathfinding = () => {
             let weight = document.getElementById("weight").value;
             if ((source, target, weight)) {
               setElements(updateWeightEdge(source, target, weight, elements));
-            }
-          }}
-          save={() => {
-            const graph = elements;
-            localforage.setItem("graph", graph);
-            alert("Graph Saved");
-          }}
-          reset={() => {
-            let result = window.confirm("Want to restore default graph?");
-            if (result) {
-              localforage.removeItem("graph");
-              setElements(exampleGraph);
             }
           }}
           results={results}

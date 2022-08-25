@@ -96,23 +96,6 @@ const Sidebar = (props) => {
                 {t("B-edges")}
               </button>
             )}
-            {/* 
-          <div>
-            <button
-              className="buttonSecondary"
-              style={{ width: "45%" }}
-              onClick={props.reset}
-            >
-              RESET GRAPH
-            </button>
-            <button
-              className="buttonSecondary"
-              style={{ width: "45%" }}
-              onClick={props.save}
-            >
-              SAVE GRAPH
-            </button>
-          </div>*/}
             <button className="buttonPrimary" onClick={props.calculate}>
               {t("B-calculate")}
             </button>
