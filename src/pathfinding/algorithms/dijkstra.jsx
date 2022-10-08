@@ -22,7 +22,6 @@ const Dijkstra = (graph, startNode, endNode) => {
   let startTime = performance.now();
   // track distances from the start node using a hash object
   let distances = {};
-  console.log(distances);
   distances[endNode] = Infinity;
   distances = Object.assign(distances, graph[startNode]);
   // track paths using a hash object
